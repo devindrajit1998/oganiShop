@@ -1,11 +1,11 @@
 import React from 'react'
-import Head from '../components/common/Head'
-import Layout from '../components/common/Layout'
-import { useProductContext } from '../components/context/ProductContext'
+import Head from '../common/Head'
+import Layout from '../common/Layout'
+import { useProductContext } from '../context/ProductContext'
 // import { useParams } from 'react-router-dom';
 
 export default function CartPage() {
-    const { cart, removeAllCart,dltSingleData } = useProductContext();
+    const { cart, removeAllCart,dltSingleData, itemNumber, incr, dcr, singlePrice } = useProductContext();
     // const { id } = useParams();
 
 
@@ -35,7 +35,7 @@ export default function CartPage() {
 
                                         {cart.map((curElem) => {
                                             const {id, name, price, img } = curElem;
-                                            console.log('cart name', name)
+                                            // console.log('cart name', name)
                                             return (
                                                 <tr key={id}>
                                                     <td className="shoping__cart__item">
@@ -46,13 +46,13 @@ export default function CartPage() {
                                                     <td className="shoping__cart__quantity">
                                                         <div className="quantity">
                                                             <div className="pro-qty">
-                                                                <span className="dec qtybtn">-</span>
-                                                                <input type="text" defaultValue={1} />
-                                                                <span className="inc qtybtn">+</span>
+                                                                <span className="dec qtybtn" onClick={() => dcr(id)}>-</span>
+                                                                <input type="text" value={itemNumber} />
+                                                                <span className="inc qtybtn" onClick={() => incr(id)}>+</span>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td className="shoping__cart__total">total price</td>
+                                                    <td className="shoping__cart__total">{singlePrice}</td>
                                                     <td className="shoping__cart__item__close">
                                                         <i className="fa-solid fa-xmark" onClick={()=>dltSingleData(id)} />
                                                     </td>

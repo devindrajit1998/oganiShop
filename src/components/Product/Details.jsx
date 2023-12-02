@@ -6,7 +6,7 @@ import AddCart from '../common/addCart';
 
 export default function Details() {
     const { id } = useParams();
-    console.log('Product ID:', id);
+    // console.log('Product ID:', id);
     const { totalData} = useProductContext();
 
     const selectedProduct = totalData.find((product) => product.id === id);

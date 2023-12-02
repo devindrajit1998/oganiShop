@@ -3,8 +3,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import Shop from './components/Shop/Shop';
-import ProductDetails from './components/Product/ProductDetails'
-import CartPage from './cart/CartPage';
+import ProductDetails from './components/Product/ProductDetails';
+import CartPage from './components/cart/CartPage';
 
 function App() {
   return (
